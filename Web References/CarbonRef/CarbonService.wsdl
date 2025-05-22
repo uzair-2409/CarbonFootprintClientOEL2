@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CalculateEnergyFootprint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="energyKWh" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="emissionFactor" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalculateEnergyFootprintResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CalculateEnergyFootprintResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalculateTransportFootprint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="distanceKm" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="emissionFactor" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalculateTransportFootprintResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CalculateTransportFootprintResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalculateWasteFootprint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="wasteTonnes" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="emissionFactor" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalculateWasteFootprintResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CalculateWasteFootprintResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalculateTotalFootprint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="energy" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="transport" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="waste" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalculateTotalFootprintResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CalculateTotalFootprintResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CalculateEnergyFootprintSoapIn">
+    <wsdl:part name="parameters" element="tns:CalculateEnergyFootprint" />
+  </wsdl:message>
+  <wsdl:message name="CalculateEnergyFootprintSoapOut">
+    <wsdl:part name="parameters" element="tns:CalculateEnergyFootprintResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalculateTransportFootprintSoapIn">
+    <wsdl:part name="parameters" element="tns:CalculateTransportFootprint" />
+  </wsdl:message>
+  <wsdl:message name="CalculateTransportFootprintSoapOut">
+    <wsdl:part name="parameters" element="tns:CalculateTransportFootprintResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalculateWasteFootprintSoapIn">
+    <wsdl:part name="parameters" element="tns:CalculateWasteFootprint" />
+  </wsdl:message>
+  <wsdl:message name="CalculateWasteFootprintSoapOut">
+    <wsdl:part name="parameters" element="tns:CalculateWasteFootprintResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalculateTotalFootprintSoapIn">
+    <wsdl:part name="parameters" element="tns:CalculateTotalFootprint" />
+  </wsdl:message>
+  <wsdl:message name="CalculateTotalFootprintSoapOut">
+    <wsdl:part name="parameters" element="tns:CalculateTotalFootprintResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CarbonServiceSoap">
+    <wsdl:operation name="CalculateEnergyFootprint">
+      <wsdl:input message="tns:CalculateEnergyFootprintSoapIn" />
+      <wsdl:output message="tns:CalculateEnergyFootprintSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateTransportFootprint">
+      <wsdl:input message="tns:CalculateTransportFootprintSoapIn" />
+      <wsdl:output message="tns:CalculateTransportFootprintSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateWasteFootprint">
+      <wsdl:input message="tns:CalculateWasteFootprintSoapIn" />
+      <wsdl:output message="tns:CalculateWasteFootprintSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateTotalFootprint">
+      <wsdl:input message="tns:CalculateTotalFootprintSoapIn" />
+      <wsdl:output message="tns:CalculateTotalFootprintSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CarbonServiceSoap" type="tns:CarbonServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CalculateEnergyFootprint">
+      <soap:operation soapAction="http://tempuri.org/CalculateEnergyFootprint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateTransportFootprint">
+      <soap:operation soapAction="http://tempuri.org/CalculateTransportFootprint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateWasteFootprint">
+      <soap:operation soapAction="http://tempuri.org/CalculateWasteFootprint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateTotalFootprint">
+      <soap:operation soapAction="http://tempuri.org/CalculateTotalFootprint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CarbonServiceSoap12" type="tns:CarbonServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CalculateEnergyFootprint">
+      <soap12:operation soapAction="http://tempuri.org/CalculateEnergyFootprint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateTransportFootprint">
+      <soap12:operation soapAction="http://tempuri.org/CalculateTransportFootprint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateWasteFootprint">
+      <soap12:operation soapAction="http://tempuri.org/CalculateWasteFootprint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateTotalFootprint">
+      <soap12:operation soapAction="http://tempuri.org/CalculateTotalFootprint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CarbonService">
+    <wsdl:port name="CarbonServiceSoap" binding="tns:CarbonServiceSoap">
+      <soap:address location="https://localhost:44320/CarbonService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CarbonServiceSoap12" binding="tns:CarbonServiceSoap12">
+      <soap12:address location="https://localhost:44320/CarbonService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
